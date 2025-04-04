@@ -13,9 +13,13 @@
   "description": "",
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
+    "@huggingface/inference": "^3.6.2",
+    "axios": "^1.8.4",
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "groq": "^3.82.0",
+    "node-fetch": "^3.3.2",
     "sqlite3": "^5.1.7"
   }
 }

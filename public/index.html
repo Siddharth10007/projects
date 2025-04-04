@@ -3,72 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questinator</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>StudyBuddy - Your AI-Powered Learning Assistant</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="logo.jpg">
+    <link rel="icon" href="logo.jpg" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-sun"></i>
-        <i class="fas fa-moon" style="display: none;"></i>
-    </div>
-    <div class="container">
-        <div class="glass-card">
-            <div class="slider-container">
-                <div class="slider-switch" data-active="generator">
-                    <div class="slider-label active" onclick="switchTab('generator')">Generator</div>
-                    <div class="slider-label" onclick="switchTab('popular')">Popular</div>
-                    <div class="slider-pill"></div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>StudyBuddy</h1>
+                <p>Your AI-Powered Learning Assistant</p>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#ai-assistant">AI Assistant</a></li>
+                    <li><a href="#study-resources">Study Resources</a></li>
+                    <li><a href="#video-notes">Video Notes</a></li>
+                    <li><a href="#planner">Study Planner</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="container">
+            <h1>Transform Your Learning Experience</h1>
+            <p>Leverage the power of AI to enhance your study sessions</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>🚀 How It Works (API Features in Action!)</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Concept Explanation</h3>
+                    <p>Grok API generates similar questions & explains complex concepts</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-search"></i>
+                    <h3>Research Assistant</h3>
+                    <p>SerpAPI fetches research papers & online study materials</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Video to Notes</h3>
+                    <p>Grok API converts video content into structured study notes</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Study Planner</h3>
+                    <p>Grok API creates personalized study plans based on your goals</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Generator Content -->
-            <div class="tab-content active" id="generator">
-                <h1 class="title"><i class="fas fa-question-circle"></i> Questinator</h1>
-                <div class="input-group">
-                    <div class="input-container">
-                        <input type="text" id="input" placeholder="Enter question or topic..." onkeypress="handleKeyPress(event)">
-                        <i class="fas fa-pencil-alt input-icon"></i>
-                        <i class="fas fa-paperclip paperclip-icon" onclick="document.getElementById('fileInput').click()"></i>
-                        <i class="fas fa-camera camera-icon" onclick="openCamera()"></i>
-                        <input type="file" id="fileInput" accept="image/*" hidden>
+    <section id="ai-assistant">
+        <div class="container">
+            <h2>🤖 AI Learning Assistant</h2>
+            <div class="ai-interface">
+                <div class="ai-input">
+                    <h3>Ask a Question or Upload Content</h3>
+                    <textarea id="user-query" placeholder="Enter your question or concept you want to understand..."></textarea>
+                    <div class="button-group">
+                        <button id="ask-ai">Get Answer</button>
+                        <button id="generate-questions">Generate Similar Questions</button>
                     </div>
-                    <label class="checkbox-label">
-                        <input type="checkbox" id="isTopic" class="checkbox">
-                        <span class="checkmark"></span>
-                        Is this a topic?
-                    </label>
                 </div>
-                <button class="generate-btn" onclick="generate()">
-                    Generate <i class="fas fa-arrow-right"></i>
-                </button>
-                <div id="result" class="result-box"></div>
-            </div>
-
-            <!-- Popular Content -->
-            <div class="tab-content popular-slide" id="popular">
-                <h1 class="title"><i class="fas fa-fire"></i> Trending Topics</h1>
-                <div id="topics-list" class="topics-container"></div>
+                <div class="ai-output">
+                    <h3>AI Response</h3>
+                    <div id="ai-response" class="response-area">
+                        <p class="placeholder">AI-generated explanations will appear here...</p>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Camera Modal -->
-    <div id="cameraModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeCamera()">&times;</span>
-            <video id="cameraPreview" autoplay></video>
-            <div class="camera-controls">
-                <button class="capture-btn" onclick="capturePhoto()">
-                    <i class="fas fa-camera"></i>
-                </button>
-                <button class="switch-camera-btn" onclick="switchCamera()">
-                    <i class="fas fa-retweet"></i>
-                </button>
+    <section id="study-resources">
+        <div class="container">
+            <h2>🔍 Study Resources</h2>
+            <div class="resource-search">
+                <input type="text" id="resource-query" placeholder="Search for study materials, research papers, articles...">
+                <button id="search-resources">Search</button>
+            </div>
+            <div class="resource-tabs">
+                <button class="tab-button active" data-tab="papers">Research Papers</button>
+                <button class="tab-button" data-tab="articles">Articles</button>
+                <button class="tab-button" data-tab="videos">Videos</button>
+            </div>
+            <div id="resource-results" class="results-container">
+                <p class="placeholder">Search results will appear here...</p>
             </div>
         </div>
-    </div>
+    </section>
+
+    <section id="video-notes">
+        <div class="container">
+            <h2>🎥 Video to Study Notes</h2>
+            <div class="video-input">
+                <input type="text" id="video-url" placeholder="Enter YouTube video URL">
+                <button id="generate-notes">Generate Notes</button>
+            </div>
+            <div id="video-notes-result" class="notes-container">
+                <p class="placeholder">Generated notes will appear here...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="planner">
+        <div class="container">
+            <h2>📊 Study Planner</h2>
+            <div class="planner-interface">
+                <div class="planner-input">
+                    <h3>Create Your Study Plan</h3>
+                    <form id="planner-form">
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="goal">Learning Goal</label>
+                            <input type="text" id="goal" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadline">Deadline</label>
+                            <input type="date" id="deadline" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="study-hours">Available Study Hours per Week</label>
+                            <input type="number" id="study-hours" min="1" max="168" required>
+                        </div>
+                        <button type="submit">Generate Study Plan</button>
+                    </form>
+                </div>
+                <div class="planner-output">
+                    <h3>Your Study Plan</h3>
+                    <div id="study-plan" class="plan-container">
+                        <p class="placeholder">Your personalized study plan will appear here...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>StudyBuddy</h2>
+                    <p>Your AI-Powered Learning Assistant</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#ai-assistant">AI Assistant</a></li>
+                        <li><a href="#study-resources">Study Resources</a></li>
+                        <li><a href="#video-notes">Video Notes</a></li>
+                        <li><a href="#planner">Study Planner</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: support@studybuddy.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 StudyBuddy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <script src="js/app.js"></script>
 </body>
